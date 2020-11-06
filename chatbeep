@@ -1,0 +1,19 @@
+#!/bin/bash
+clear
+
+sleep 5
+diff -y -W 70 sshchat.log sshchat2.log > /dev/null 2>&1
+error=$?
+if [ $error -eq 0 ]
+then 
+echo "No changes in this chat"
+elif [ $error -eq 1 ]
+then
+./guyscheck.sh
+#./checkifleft.sh
+fi
+
+
+sleep 5
+
+./chatbeep
